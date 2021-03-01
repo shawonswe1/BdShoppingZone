@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "999031384865",
+    "project_id": "bdshoppingzone-60f7f",
+    "storage_bucket": "bdshoppingzone-60f7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999031384865:android:618baaa8c78af28bb96c60",
+        "android_client_info": {
+          "package_name": "com.morshed.bdshoppingzone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999031384865-2khrvsui4buirenmdug82g4ja97p89vr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlwLA2nzs0AGZ86am-pyXEbd9MhgD7ELg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "999031384865-2khrvsui4buirenmdug82g4ja97p89vr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
