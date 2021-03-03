@@ -43,11 +43,11 @@ public class MyFCMService extends FirebaseMessagingService {
 
             String message = remoteMessage.getData().get("body");
             String click_action = remoteMessage.getNotification().getClickAction();
-            sendNotification(remoteMessage.getData().get("body"),click_action,messages);
+            sendNotification(remoteMessage.getNotification().getBody(),remoteMessage.getNotification().getTitle(),click_action,messages);
         }
     }
 
-    private void sendNotification(String body, String click_action, String messages)
+    private void sendNotification(String body, String title, String click_action, String messages)
     {
         Bundle bundle = new Bundle();
         bundle.putString("body",messages);
@@ -80,7 +80,7 @@ public class MyFCMService extends FirebaseMessagingService {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this,Notification_ID);
         builder.setSmallIcon(R.drawable.ic_notification);
-        builder.setContentTitle("Offer");
+        builder.setContentTitle(title);
         builder.setContentText(body);
         builder.setContentInfo("info");
         builder.setAutoCancel(true);
