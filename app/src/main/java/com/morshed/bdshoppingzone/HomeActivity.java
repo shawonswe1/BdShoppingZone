@@ -2,11 +2,18 @@ package com.morshed.bdshoppingzone;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.Window;
@@ -56,6 +63,37 @@ public class HomeActivity extends AppCompatActivity {
 
         subscribeToTopic();
         getToken();
+
+        requestNotificationPermission();
+    }
+
+
+    private void requestNotificationPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_NOTIFICATION_POLICY) == PackageManager.PERMISSION_GRANTED)
+            return;
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_NOTIFICATION_POLICY)) {
+
+        }
+
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_NOTIFICATION_POLICY}, 1 );
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        // Checking the request code of our request
+        if (requestCode == 1 ) {
+
+            // If permission is granted
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Displaying a toast
+                Toast.makeText(this, "Permission granted now you can read the storage", Toast.LENGTH_LONG).show();
+            } else {
+                // Displaying another toast if permission is not granted
+                Toast.makeText(this, "Oops you just denied the permission", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     //Bottom Navigation Click Method
@@ -98,6 +136,8 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
     }
 
     // Bottom Navigation Default Click Method
@@ -123,7 +163,7 @@ public class HomeActivity extends AppCompatActivity {
                             msg = "Failed";
                         }
                         Log.d("TAG", msg);
-                        Toast.makeText(HomeActivity.this, msg, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(HomeActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 });
     }

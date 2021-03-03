@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BdShoppingZone</string>
+    <string name="app_name">Shopping Zone BD</string>
 
     <string name="connection_Messaage">No Internet Connection</string>
     <string name="retry">Retry</string>
