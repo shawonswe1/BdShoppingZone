@@ -4,7 +4,7 @@
     <item
         android:state_selected="true"
         android:state_checked="true"
-        android:color="#F3F4F4"/>
+        android:color="#FFFF"/>
     <item
         android:state_selected="false"
         android:state_checked="false"
